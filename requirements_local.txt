@@ -1,0 +1,12 @@
+# 🎃 ScarePi Local Testing Requirements 🦇
+# For testing the web interface on Mac/Windows without Raspberry Pi
+
+# Web Framework
+Flask==3.0.0
+Werkzeug==3.0.1
+
+# System Utilities
+python-dateutil==2.8.2
+
+# Note: RPi.GPIO, picamera, and pygame are not needed for local testing
+# They are only required on the actual Raspberry Pi

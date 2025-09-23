@@ -1,0 +1,36 @@
+🎃 Scary Sound File Placeholder 🦇
+
+This file is a placeholder for your scary sound effects.
+
+To add scary sounds to your ScarePi:
+
+1. Find or create scary audio files
+2. Convert them to OGG format for best compatibility
+3. Rename them to "scary_sound.ogg" and place in this directory
+
+Recommended audio formats:
+- OGG (preferred)
+- WAV
+- MP3
+
+You can convert audio files using:
+- Audacity (free)
+- FFmpeg: ffmpeg -i input.mp3 output.ogg
+- Online converters
+
+Some ideas for scary sounds:
+- Ghostly moans
+- Creepy door creaks
+- Thunder and lightning
+- Spooky music
+- Monster growls
+- Witch cackles
+- Haunted house ambience
+
+Make sure your audio files are:
+- Not too long (2-5 seconds recommended)
+- Loud enough to be heard
+- Appropriate for your audience
+- Free from copyright issues
+
+Happy haunting! 👻

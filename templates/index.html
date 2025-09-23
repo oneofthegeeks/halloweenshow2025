@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎃 ScarePi Control Panel 🦇</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="spooky-header">
+            <h1 class="title">🎃 ScarePi Control Panel 🦇</h1>
+            <p class="subtitle">Your Digital Haunted House Command Center</p>
+            <div class="status-indicator" id="statusIndicator">
+                <span class="status-dot"></span>
+                <span id="statusText">Initializing...</span>
+            </div>
+        </header>
+
+        <!-- Main Control Panel -->
+        <div class="control-panel">
+            <!-- Motion Detection Section -->
+            <div class="control-section">
+                <h2>👁️ Motion Detection</h2>
+                <div class="motion-controls">
+                    <button id="motionToggle" class="btn btn-primary">
+                        <span class="btn-icon">👻</span>
+                        <span class="btn-text">Enable Motion Detection</span>
+                    </button>
+                    <div class="motion-status" id="motionStatus">
+                        <span class="status-label">Status:</span>
+                        <span class="status-value" id="motionStatusText">Disabled</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manual Controls Section -->
+            <div class="control-section">
+                <h2>🎮 Manual Controls</h2>
+                <div class="manual-controls">
+                    <button id="fullScareBtn" class="btn btn-danger">
+                        <span class="btn-icon">💀</span>
+                        <span class="btn-text">Full Scare Sequence</span>
+                    </button>
+                    
+                    <div class="individual-controls">
+                        <button id="propBtn" class="btn btn-warning">
+                            <span class="btn-icon">⚡</span>
+                            <span class="btn-text">Trigger Prop</span>
+                        </button>
+                        
+                        <button id="soundBtn" class="btn btn-info">
+                            <span class="btn-icon">🔊</span>
+                            <span class="btn-text">Play Sound</span>
+                        </button>
+                        
+                        <button id="recordBtn" class="btn btn-success">
+                            <span class="btn-icon">📹</span>
+                            <span class="btn-text">Start Recording</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Status Section -->
+            <div class="control-section">
+                <h2>📊 System Status</h2>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <span class="status-label">ScarePi System:</span>
+                        <span class="status-value" id="systemStatus">Checking...</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Motion Sensor:</span>
+                        <span class="status-value" id="sensorStatus">Active</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Last Update:</span>
+                        <span class="status-value" id="lastUpdate">Never</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="spooky-footer">
+            <p>🌙 Built with spooky Python magic | Based on Network Chuck's tutorial</p>
+            <p>⚡ Raspberry Pi GPIO Control | 🎃 Halloween 2025</p>
+        </footer>
+    </div>
+
+    <!-- Floating Ghost Animation -->
+    <div class="floating-ghost">👻</div>
+    <div class="floating-bat">🦇</div>
+    <div class="floating-pumpkin">🎃</div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -49,10 +49,10 @@ class ScarePi:
         signal.signal(signal.SIGINT, self._signal_handler)
         signal.signal(signal.SIGTERM, self._signal_handler)
         
-        print("ScarePi initialized!")
-        print(f"Motion sensor on pin: {self.motion_pin}")
-        print(f"Relay on pin: {self.relay_pin}")
-        print("Press Ctrl+C to stop")
+        print("🎃 ScarePi initialized!")
+        print(f"👁️ Motion sensor on pin: {self.motion_pin}")
+        print(f"⚡ Relay on pin: {self.relay_pin}")
+        print("🌙 Ready to spook!")
     
     def _signal_handler(self, signum, frame):
         """Handle shutdown signals gracefully."""
@@ -68,13 +68,17 @@ class ScarePi:
         self.camera.close()
         print("GPIO and camera cleaned up.")
     
+    def motion_detected(self):
+        """Check if motion is currently detected."""
+        return GPIO.input(self.motion_pin) == 1
+    
     def trigger_prop(self, duration=2.0):
         """Trigger Halloween prop by closing relay."""
-        print("BOO! Triggering prop...")
+        print("🦇 BOO! Triggering prop...")
         GPIO.output(self.relay_pin, GPIO.LOW)  # Close relay
         time.sleep(duration)
         GPIO.output(self.relay_pin, GPIO.HIGH)  # Open relay
-        print("Prop triggered!")
+        print("⚡ Prop triggered!")
     
     def play_scary_sound(self, sound_file="scary_sound.ogg"):
         """Play scary sound effect."""
@@ -82,10 +86,10 @@ class ScarePi:
             scary_sound = pygame.mixer.Sound(sound_file)
             scary_sound.set_volume(1.0)  # Max volume
             scary_sound.play()
-            print(f"Playing scary sound: {sound_file}")
+            print(f"🔊 Playing scary sound: {sound_file}")
         except pygame.error as e:
-            print(f"Could not play sound file {sound_file}: {e}")
-            print("Make sure you have a scary sound file in OGG format")
+            print(f"❌ Could not play sound file {sound_file}: {e}")
+            print("💡 Make sure you have a scary sound file in OGG format")
     
     def record_scare(self, filename=None):
         """Record video of the scare."""
@@ -93,11 +97,11 @@ class ScarePi:
             current = datetime.now()
             filename = f"scare_{current.strftime('%Y%m%d_%H%M%S')}.h264"
         
-        print(f"Recording scare: {filename}")
+        print(f"📹 Recording scare: {filename}")
         self.camera.start_recording(filename)
         time.sleep(2)  # Record for 2 seconds
         self.camera.stop_recording()
-        print(f"Scare recorded: {filename}")
+        print(f"🎬 Scare recorded: {filename}")
         return filename
     
     def run_motion_detection(self):

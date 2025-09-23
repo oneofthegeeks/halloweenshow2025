@@ -1,0 +1,26 @@
+# 🎃 ScarePi Requirements 🦇
+# Halloween-themed Raspberry Pi haunted house project
+
+# Web Framework
+Flask==3.0.0
+Werkzeug==3.0.1
+
+# GPIO and Hardware Control
+RPi.GPIO==0.7.1
+
+# Camera Control
+picamera==1.13
+
+# Audio Processing
+pygame==2.5.2
+
+# System Utilities
+python-dateutil==2.8.2
+
+# Optional: For enhanced audio support
+# pyaudio==0.2.11  # Uncomment if you need advanced audio features
+
+# Development Dependencies (optional)
+# pytest==7.4.3
+# black==23.9.1
+# flake8==6.1.0
