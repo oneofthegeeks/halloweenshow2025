@@ -1,0 +1,35 @@
+# 🎃 ScarePi Enhanced Docker Compose 🦇
+# Marketing Platform + Haunted House Control System
+
+version: '3.8'
+
+services:
+  scarepi:
+    build: .
+    container_name: scarepi-enhanced
+    ports:
+      - "5001:5001"
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./data:/app/data
+      - ./scarepi_audience.db:/app/scarepi_audience.db
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/api/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.scarepi.rule=Host(`scarepi.local`)"
+      - "traefik.http.routers.scarepi.entrypoints=web"
+      - "traefik.http.services.scarepi.loadbalancer.server.port=5001"
+    networks:
+      - scarepi-network
+
+networks:
+  scarepi-network:
+    driver: bridge
