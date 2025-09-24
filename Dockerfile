@@ -34,6 +34,10 @@ RUN chmod +x /app/install.sh /app/setup_local.sh /app/start_local.sh
 
 # Create non-root user
 RUN useradd -m -u 1000 scarepi && chown -R scarepi:scarepi /app
+
+# Ensure data directory is writable
+RUN chmod 755 /app/data
+
 USER scarepi
 
 # Expose port

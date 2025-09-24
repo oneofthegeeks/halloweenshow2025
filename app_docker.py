@@ -41,11 +41,26 @@ class DockerScarePi:
     
     def init_database(self):
         """Initialize SQLite database for audience data."""
-        conn = sqlite3.connect('/app/data/scarepi_audience.db')
-        cursor = conn.cursor()
+        import os
         
-        # Create audience table
-        cursor.execute('''
+        try:
+            # Ensure data directory exists
+            data_dir = '/app/data'
+            if not os.path.exists(data_dir):
+                os.makedirs(data_dir, exist_ok=True)
+                print(f"📁 Created data directory: {data_dir}")
+            
+            # Set database path
+            db_path = os.path.join(data_dir, 'scarepi_audience.db')
+            print(f"🗄️ Database path: {db_path}")
+            
+            # Connect to database
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
+            print("✅ Database connection successful!")
+            
+            # Create audience table
+            cursor.execute('''
             CREATE TABLE IF NOT EXISTS audience (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL,
@@ -71,9 +86,53 @@ class DockerScarePi:
                 details TEXT
             )
         ''')
-        
-        conn.commit()
-        conn.close()
+            
+            conn.commit()
+            conn.close()
+            print("✅ Database tables created successfully!")
+            
+        except Exception as e:
+            print(f"❌ Database initialization error: {e}")
+            print("🔄 Attempting to create database in current directory...")
+            try:
+                # Fallback to current directory
+                conn = sqlite3.connect('scarepi_audience.db')
+                cursor = conn.cursor()
+                
+                # Create tables
+                cursor.execute('''
+                    CREATE TABLE IF NOT EXISTS audience (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        name TEXT NOT NULL,
+                        email TEXT UNIQUE NOT NULL,
+                        phone TEXT,
+                        social_media TEXT,
+                        how_heard TEXT,
+                        interests TEXT,
+                        subscribe_youtube BOOLEAN DEFAULT 0,
+                        subscribe_updates BOOLEAN DEFAULT 1,
+                        join_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        ip_address TEXT,
+                        user_agent TEXT
+                    )
+                ''')
+                
+                cursor.execute('''
+                    CREATE TABLE IF NOT EXISTS show_analytics (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        event_type TEXT NOT NULL,
+                        timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        details TEXT
+                    )
+                ''')
+                
+                conn.commit()
+                conn.close()
+                print("✅ Fallback database created successfully!")
+                
+            except Exception as fallback_error:
+                print(f"❌ Fallback database creation failed: {fallback_error}")
+                raise
     
     def motion_detected(self):
         """Mock motion detection for Docker demo."""
@@ -123,7 +182,9 @@ class DockerScarePi:
     
     def add_audience_member(self, data):
         """Add new audience member to database."""
-        conn = sqlite3.connect('/app/data/scarepi_audience.db')
+        import os
+        db_path = os.path.join('/app/data', 'scarepi_audience.db')
+        conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
         
         try:
@@ -155,7 +216,9 @@ class DockerScarePi:
     
     def get_audience_stats(self):
         """Get audience statistics."""
-        conn = sqlite3.connect('/app/data/scarepi_audience.db')
+        import os
+        db_path = os.path.join('/app/data', 'scarepi_audience.db')
+        conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
         
         cursor.execute('SELECT COUNT(*) FROM audience')
