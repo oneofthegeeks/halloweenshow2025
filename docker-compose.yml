@@ -5,7 +5,9 @@ version: '3.8'
 
 services:
   scarepi:
-    build: .
+    build: 
+      context: https://github.com/oneofthegeeks/halloweenshow2025.git#v1.0.0
+      dockerfile: Dockerfile
     container_name: scarepi-enhanced
     ports:
       - "5001:5001"
