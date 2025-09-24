@@ -1,8 +1,8 @@
-# 🎃 ScarePi - Digital Haunted House Control System 🦇
+# 🎃 ScarePi Enhanced - Digital Haunted House + Marketing Platform 🦇
 
-A spooky Raspberry Pi project that creates an automated haunted house experience with motion detection, prop control, sound effects, and video recording. Based on Network Chuck's tutorial with added web UI and Halloween theming!
+A comprehensive Raspberry Pi project that creates an automated haunted house experience with motion detection, prop control, sound effects, video recording, AND a complete marketing platform for building your Halloween audience and growing your following!
 
-## 🌙 Features
+## 🌙 Core Features
 
 - **Motion Detection**: Automatically triggers scares when motion is detected
 - **Web Control Panel**: Beautiful Halloween-themed web interface
@@ -11,6 +11,17 @@ A spooky Raspberry Pi project that creates an automated haunted house experience
 - **Sound Effects**: Plays scary audio files
 - **Prop Control**: Controls Halloween props via relay
 - **Real-time Status**: Live system monitoring
+
+## 🚀 Marketing & Audience Engagement Features
+
+- **📱 QR Code System**: Generate QR codes for easy audience access
+- **👥 Audience Data Collection**: Comprehensive form to build your email list
+- **📊 Analytics Dashboard**: Real-time show statistics and audience insights
+- **📺 YouTube Integration**: Grow your channel with subscriber opt-ins
+- **📱 Social Media Sharing**: Viral content creation and cross-platform growth
+- **📈 Show Analytics**: Track performance and optimize your haunted house
+- **📧 Email List Building**: Direct communication with your audience
+- **🎬 Show Management**: Start/stop shows with live monitoring
 
 ## 🛠️ Hardware Requirements
 
@@ -133,7 +144,7 @@ python app.py
 
 Open your browser and navigate to: `http://your-pi-ip:5000`
 
-### Web Interface Features
+### Enhanced Web Interface Features
 
 #### 🎃 Main Control Panel
 - **Motion Detection Toggle**: Enable/disable automatic motion detection
@@ -143,9 +154,18 @@ Open your browser and navigate to: `http://your-pi-ip:5000`
   - 🔊 Play Sound
   - 📹 Start Recording
 
+#### 📱 Marketing & Audience Engagement
+- **QR Code Generator**: Create QR codes for easy audience access
+- **Audience Form**: Comprehensive data collection form
+- **Analytics Dashboard**: Real-time show statistics and insights
+- **Show Management**: Start/stop shows with live monitoring
+- **Social Media Integration**: YouTube and social sharing features
+
 #### 📊 System Status
 - Real-time system monitoring
 - Motion sensor status
+- Show status and duration
+- Audience statistics
 - Connection status
 - Last update timestamp
 
@@ -257,18 +277,34 @@ python3 -c "import RPi.GPIO as GPIO; print('GPIO access OK')"
 
 ```
 halloweenshow2025/
-├── app.py                 # Main Flask web application
+├── app.py                 # Main Flask web application (Raspberry Pi)
+├── app_enhanced.py        # Enhanced Flask app with marketing features
+├── app_mock.py           # Mock version for local testing
 ├── scarepi.py            # Core ScarePi class
 ├── motion_test.py        # Motion sensor testing
 ├── scare_audio.py        # Audio testing
-├── requirements.txt      # Python dependencies
-├── README.md            # This file
+├── requirements.txt      # Python dependencies (Raspberry Pi)
+├── requirements_local.txt # Dependencies for local testing
+├── README.md             # This file
+├── QUICKSTART.md         # Quick start guide
+├── MARKETING_GUIDE.md    # Complete marketing strategy guide
+├── install.sh            # Automated installation script
+├── setup_local.sh        # Local testing setup
+├── start_local.sh        # Local testing startup script
 ├── templates/
-│   └── index.html       # Web interface template
+│   ├── index.html        # Basic web interface template
+│   ├── enhanced_index.html # Enhanced control panel
+│   ├── audience_form.html # Audience data collection form
+│   ├── analytics.html    # Analytics dashboard
+│   └── qr_display.html   # QR code display page
 ├── static/
-│   ├── style.css        # Halloween-themed CSS
-│   └── script.js        # Web interface JavaScript
-└── config.json          # Configuration file (auto-generated)
+│   ├── style.css         # Basic Halloween-themed CSS
+│   ├── enhanced_style.css # Enhanced CSS with marketing features
+│   ├── script.js         # Basic web interface JavaScript
+│   └── enhanced_script.js # Enhanced JavaScript with marketing features
+├── config.json           # Configuration file (auto-generated)
+├── scarepi_audience.db   # SQLite database for audience data
+└── scary_sound_placeholder.txt # Audio file instructions
 ```
 
 ## 🎃 Halloween Setup Ideas
@@ -285,6 +321,49 @@ halloweenshow2025/
 - Multiple audio outputs
 - Fog machine integration
 - Remote monitoring via web interface
+
+### Marketing & Audience Growth
+- **QR Code Displays**: Place QR codes at entrance and key locations
+- **Social Media Integration**: Share your show and grow your following
+- **Audience Data Collection**: Build your email list and YouTube subscribers
+- **Analytics Tracking**: Monitor show performance and audience engagement
+- **Content Creation**: Use the system to create viral Halloween content
+
+## 📱 Enhanced Marketing Features
+
+### QR Code System
+- Generate QR codes for easy audience access
+- Print-ready QR codes for physical displays
+- Direct link sharing to audience form
+- Social media integration for viral sharing
+
+### Audience Data Collection
+- Comprehensive form with interests and preferences
+- Social media integration for cross-platform growth
+- YouTube subscription opt-in for channel growth
+- Email list building for direct communication
+- Analytics tracking for audience insights
+
+### Analytics Dashboard
+- Real-time show statistics and audience metrics
+- Engagement tracking and conversion rates
+- Data export for marketing analysis
+- Performance insights for show optimization
+
+### Social Media Integration
+- YouTube channel promotion and subscriber growth
+- Social sharing buttons for viral content
+- Cross-platform engagement tools
+- Content creation for building your following
+
+## 📚 Marketing Guide
+
+For a complete marketing strategy and audience growth guide, see `MARKETING_GUIDE.md` which includes:
+- QR code marketing tactics
+- Audience data collection strategies
+- Social media growth techniques
+- Content creation ideas
+- Analytics and optimization tips
 
 ## 🤝 Contributing
 

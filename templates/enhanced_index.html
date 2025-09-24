@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎃 ScarePi Enhanced Control Panel 🦇</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='enhanced_style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Enhanced Header -->
+        <header class="spooky-header enhanced">
+            <h1 class="title">🎃 ScarePi Enhanced Control Panel 🦇</h1>
+            <p class="subtitle">Your Digital Haunted House Command Center + Marketing Platform</p>
+            <div class="status-indicator" id="statusIndicator">
+                <span class="status-dot"></span>
+                <span id="statusText">Initializing...</span>
+            </div>
+            <div class="show-stats" id="showStats">
+                <div class="stat-item">
+                    <span class="stat-label">👥 Audience:</span>
+                    <span class="stat-value" id="audienceCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">👻 Scares:</span>
+                    <span class="stat-value" id="scareCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">⏱️ Show Time:</span>
+                    <span class="stat-value" id="showTime">0:00:00</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Marketing & Engagement Section -->
+        <div class="marketing-section">
+            <h2>📱 Audience Engagement</h2>
+            <div class="marketing-controls">
+                <button id="qrCodeBtn" class="btn btn-marketing">
+                    <span class="btn-icon">📱</span>
+                    <span class="btn-text">Generate QR Code</span>
+                </button>
+                
+                <button id="audienceFormBtn" class="btn btn-marketing">
+                    <span class="btn-icon">👥</span>
+                    <span class="btn-text">Audience Form</span>
+                </button>
+                
+                <button id="analyticsBtn" class="btn btn-marketing">
+                    <span class="btn-icon">📊</span>
+                    <span class="btn-text">Analytics</span>
+                </button>
+                
+                <button id="startShowBtn" class="btn btn-success">
+                    <span class="btn-icon">🎬</span>
+                    <span class="btn-text">Start Show</span>
+                </button>
+                
+                <button id="stopShowBtn" class="btn btn-danger">
+                    <span class="btn-icon">🛑</span>
+                    <span class="btn-text">Stop Show</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Control Panel -->
+        <div class="control-panel">
+            <!-- Motion Detection Section -->
+            <div class="control-section">
+                <h2>👁️ Motion Detection</h2>
+                <div class="motion-controls">
+                    <button id="motionToggle" class="btn btn-primary">
+                        <span class="btn-icon">👻</span>
+                        <span class="btn-text">Enable Motion Detection</span>
+                    </button>
+                    <div class="motion-status" id="motionStatus">
+                        <span class="status-label">Status:</span>
+                        <span class="status-value" id="motionStatusText">Disabled</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manual Controls Section -->
+            <div class="control-section">
+                <h2>🎮 Manual Controls</h2>
+                <div class="manual-controls">
+                    <button id="fullScareBtn" class="btn btn-danger">
+                        <span class="btn-icon">💀</span>
+                        <span class="btn-text">Full Scare Sequence</span>
+                    </button>
+                    
+                    <div class="individual-controls">
+                        <button id="propBtn" class="btn btn-warning">
+                            <span class="btn-icon">⚡</span>
+                            <span class="btn-text">Trigger Prop</span>
+                        </button>
+                        
+                        <button id="soundBtn" class="btn btn-info">
+                            <span class="btn-icon">🔊</span>
+                            <span class="btn-text">Play Sound</span>
+                        </button>
+                        
+                        <button id="recordBtn" class="btn btn-success">
+                            <span class="btn-icon">📹</span>
+                            <span class="btn-text">Start Recording</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media Integration -->
+            <div class="control-section">
+                <h2>📱 Social Media</h2>
+                <div class="social-controls">
+                    <button id="youtubeBtn" class="btn btn-social youtube">
+                        <span class="btn-icon">📺</span>
+                        <span class="btn-text">YouTube Channel</span>
+                    </button>
+                    
+                    <button id="shareBtn" class="btn btn-social share">
+                        <span class="btn-icon">📤</span>
+                        <span class="btn-text">Share Show</span>
+                    </button>
+                    
+                    <button id="liveStreamBtn" class="btn btn-social live">
+                        <span class="btn-icon">🔴</span>
+                        <span class="btn-text">Go Live</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- System Status Section -->
+            <div class="control-section">
+                <h2>📊 Enhanced System Status</h2>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <span class="status-label">ScarePi System:</span>
+                        <span class="status-value" id="systemStatus">Checking...</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Show Status:</span>
+                        <span class="status-value" id="showStatus">Inactive</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Motion Sensor:</span>
+                        <span class="status-value" id="sensorStatus">Active</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Last Update:</span>
+                        <span class="status-value" id="lastUpdate">Never</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Footer -->
+        <footer class="spooky-footer enhanced">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🎃 ScarePi Enhanced</h3>
+                    <p>Digital Haunted House + Marketing Platform</p>
+                </div>
+                <div class="footer-section">
+                    <h3>📱 Connect</h3>
+                    <p>QR Code: /qr | Audience: /audience</p>
+                </div>
+                <div class="footer-section">
+                    <h3>📊 Analytics</h3>
+                    <p>Real-time show statistics and audience data</p>
+                </div>
+            </div>
+            <p class="footer-bottom">🌙 Built with spooky Python magic | Enhanced for audience engagement | 🎃 Halloween 2025</p>
+        </footer>
+    </div>
+
+    <!-- Enhanced Floating Animations -->
+    <div class="floating-ghost">👻</div>
+    <div class="floating-bat">🦇</div>
+    <div class="floating-pumpkin">🎃</div>
+    <div class="floating-skull">💀</div>
+    <div class="floating-spider">🕷️</div>
+
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>📱 QR Code for Show Access</h2>
+            <div id="qrCodeDisplay"></div>
+            <p>Scan this QR code to join the audience!</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='enhanced_script.js') }}"></script>
+</body>
+</html>

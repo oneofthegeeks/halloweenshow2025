@@ -17,6 +17,16 @@ pygame==2.5.2
 # System Utilities
 python-dateutil==2.8.2
 
+# QR Code Generation
+qrcode[pil]==8.2
+Pillow==11.3.0
+
+# Database
+# sqlite3 is included with Python standard library
+
+# Email (optional)
+# smtplib is included with Python standard library
+
 # Optional: For enhanced audio support
 # pyaudio==0.2.11  # Uncomment if you need advanced audio features
 

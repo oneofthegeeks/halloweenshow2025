@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 ScarePi Analytics Dashboard 🎃</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='enhanced_style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container analytics-page">
+        <!-- Analytics Header -->
+        <header class="analytics-header">
+            <h1 class="title">📊 ScarePi Analytics Dashboard 🎃</h1>
+            <p class="subtitle">Real-time show statistics and audience insights</p>
+            <div class="analytics-nav">
+                <a href="/" class="nav-btn">🏠 Control Panel</a>
+                <a href="/audience" class="nav-btn">👥 Audience Form</a>
+                <a href="/qr" class="nav-btn">📱 QR Code</a>
+            </div>
+        </header>
+
+        <!-- Key Metrics -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-icon">👥</div>
+                <div class="metric-content">
+                    <h3>Total Audience</h3>
+                    <div class="metric-value">{{ stats.total_audience }}</div>
+                    <div class="metric-change">+{{ stats.total_audience }} this show</div>
+                </div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-icon">👻</div>
+                <div class="metric-content">
+                    <h3>Total Scares</h3>
+                    <div class="metric-value">{{ stats.total_scares }}</div>
+                    <div class="metric-change">Scares delivered</div>
+                </div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-icon">📺</div>
+                <div class="metric-content">
+                    <h3>YouTube Subscribers</h3>
+                    <div class="metric-value">{{ stats.youtube_subscribers }}</div>
+                    <div class="metric-change">From this show</div>
+                </div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-icon">⏱️</div>
+                <div class="metric-content">
+                    <h3>Show Duration</h3>
+                    <div class="metric-value">{{ stats.show_duration }}</div>
+                    <div class="metric-change">Running time</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <div class="chart-container">
+                <h2>📈 Audience Growth</h2>
+                <canvas id="audienceChart"></canvas>
+            </div>
+            
+            <div class="chart-container">
+                <h2>👻 Scare Activity</h2>
+                <canvas id="scareChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Real-time Data -->
+        <div class="realtime-section">
+            <h2>⚡ Real-time Show Data</h2>
+            <div class="realtime-grid">
+                <div class="realtime-card">
+                    <h3>🎬 Show Status</h3>
+                    <div class="status-indicator" id="showStatusIndicator">
+                        <span class="status-dot"></span>
+                        <span id="showStatusText">Inactive</span>
+                    </div>
+                </div>
+                
+                <div class="realtime-card">
+                    <h3>👁️ Motion Detection</h3>
+                    <div class="status-indicator" id="motionStatusIndicator">
+                        <span class="status-dot"></span>
+                        <span id="motionStatusText">Disabled</span>
+                    </div>
+                </div>
+                
+                <div class="realtime-card">
+                    <h3>📊 System Health</h3>
+                    <div class="status-indicator" id="systemStatusIndicator">
+                        <span class="status-dot"></span>
+                        <span id="systemStatusText">Online</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audience Insights -->
+        <div class="insights-section">
+            <h2>🔍 Audience Insights</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h3>📱 Traffic Sources</h3>
+                    <div class="insight-data">
+                        <div class="insight-item">
+                            <span class="insight-label">QR Code:</span>
+                            <span class="insight-value">75%</span>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-label">Social Media:</span>
+                            <span class="insight-value">15%</span>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-label">Direct:</span>
+                            <span class="insight-value">10%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <h3>🎃 Popular Interests</h3>
+                    <div class="insight-data">
+                        <div class="insight-item">
+                            <span class="insight-label">Halloween Props:</span>
+                            <span class="insight-value">85%</span>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-label">Electronics:</span>
+                            <span class="insight-value">70%</span>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-label">Programming:</span>
+                            <span class="insight-value">60%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <h3>📺 Engagement</h3>
+                    <div class="insight-data">
+                        <div class="insight-item">
+                            <span class="insight-label">YouTube Subscribers:</span>
+                            <span class="insight-value">{{ stats.youtube_subscribers }}</span>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-label">Email Subscribers:</span>
+                            <span class="insight-value">{{ stats.total_audience }}</span>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-label">Engagement Rate:</span>
+                            <span class="insight-value">92%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Export Data -->
+        <div class="export-section">
+            <h2>📤 Export Data</h2>
+            <div class="export-buttons">
+                <button id="exportAudience" class="btn btn-export">
+                    <span class="btn-icon">👥</span>
+                    <span class="btn-text">Export Audience Data</span>
+                </button>
+                
+                <button id="exportAnalytics" class="btn btn-export">
+                    <span class="btn-icon">📊</span>
+                    <span class="btn-text">Export Analytics</span>
+                </button>
+                
+                <button id="exportShowData" class="btn btn-export">
+                    <span class="btn-icon">🎬</span>
+                    <span class="btn-text">Export Show Data</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="analytics-footer">
+            <p>📊 ScarePi Analytics Dashboard | Real-time show insights</p>
+            <p>🎃 Built for audience engagement and show optimization</p>
+        </footer>
+    </div>
+
+    <!-- Floating Animations -->
+    <div class="floating-ghost">👻</div>
+    <div class="floating-bat">🦇</div>
+    <div class="floating-pumpkin">🎃</div>
+    <div class="floating-chart">📊</div>
+
+    <script src="{{ url_for('static', filename='enhanced_script.js') }}"></script>
+    <script>
+        // Initialize analytics charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Audience Growth Chart
+            const audienceCtx = document.getElementById('audienceChart').getContext('2d');
+            new Chart(audienceCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Hour 1', 'Hour 2', 'Hour 3', 'Hour 4', 'Hour 5'],
+                    datasets: [{
+                        label: 'Audience Growth',
+                        data: [0, 5, 12, 18, {{ stats.total_audience }}],
+                        borderColor: '#ff6b35',
+                        backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#fff'
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: { color: '#fff' },
+                            grid: { color: 'rgba(255,255,255,0.1)' }
+                        },
+                        y: {
+                            ticks: { color: '#fff' },
+                            grid: { color: 'rgba(255,255,255,0.1)' }
+                        }
+                    }
+                }
+            });
+
+            // Scare Activity Chart
+            const scareCtx = document.getElementById('scareChart').getContext('2d');
+            new Chart(scareCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Motion Scares', 'Manual Scares', 'Sound Effects', 'Prop Triggers'],
+                    datasets: [{
+                        label: 'Scare Activity',
+                        data: [{{ stats.total_scares }}, 3, 8, 5],
+                        backgroundColor: [
+                            'rgba(255, 107, 53, 0.8)',
+                            'rgba(255, 68, 68, 0.8)',
+                            'rgba(0, 170, 255, 0.8)',
+                            'rgba(255, 170, 0, 0.8)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#fff'
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: { color: '#fff' },
+                            grid: { color: 'rgba(255,255,255,0.1)' }
+                        },
+                        y: {
+                            ticks: { color: '#fff' },
+                            grid: { color: 'rgba(255,255,255,0.1)' }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

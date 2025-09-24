@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👻 Join the ScarePi Audience 🎃</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='enhanced_style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container audience-page">
+        <!-- Audience Header -->
+        <header class="audience-header">
+            <h1 class="title">👻 Join the ScarePi Audience 🎃</h1>
+            <p class="subtitle">Be part of our spooky Halloween show community!</p>
+            <div class="audience-benefits">
+                <div class="benefit-item">
+                    <span class="benefit-icon">🎬</span>
+                    <span class="benefit-text">Exclusive show updates</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">📺</span>
+                    <span class="benefit-text">Behind-the-scenes content</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🎃</span>
+                    <span class="benefit-text">Early access to next year's builds</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Audience Form -->
+        <div class="audience-form-container">
+            <form id="audienceForm" class="audience-form">
+                <div class="form-section">
+                    <h2>👤 Basic Information</h2>
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your spooky name...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@spooky.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone (Optional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-SPOOK">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>📱 Social Media</h2>
+                    <div class="form-group">
+                        <label for="social_media">Social Media Handle</label>
+                        <input type="text" id="social_media" name="social_media" placeholder="@yourspookyhandle">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="how_heard">How did you hear about us?</label>
+                        <select id="how_heard" name="how_heard">
+                            <option value="">Select an option...</option>
+                            <option value="qr_code">QR Code at the show</option>
+                            <option value="friend">Friend recommendation</option>
+                            <option value="social_media">Social media</option>
+                            <option value="youtube">YouTube channel</option>
+                            <option value="website">Website</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>🎃 Interests & Preferences</h2>
+                    <div class="form-group">
+                        <label for="interests">What interests you most? (Check all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="interests" value="halloween_props">
+                                <span class="checkmark"></span>
+                                🎃 Halloween Props & Decorations
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="interests" value="electronics">
+                                <span class="checkmark"></span>
+                                ⚡ Electronics & Raspberry Pi
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="interests" value="programming">
+                                <span class="checkmark"></span>
+                                💻 Programming & Coding
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="interests" value="diy_projects">
+                                <span class="checkmark"></span>
+                                🔨 DIY Projects & Building
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="interests" value="haunted_houses">
+                                <span class="checkmark"></span>
+                                👻 Haunted Houses & Scares
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>📺 Subscribe & Updates</h2>
+                    <div class="subscription-options">
+                        <label class="subscription-label">
+                            <input type="checkbox" id="subscribe_youtube" name="subscribe_youtube">
+                            <span class="subscription-checkmark"></span>
+                            <div class="subscription-content">
+                                <span class="subscription-title">📺 Subscribe to YouTube Channel</span>
+                                <span class="subscription-desc">Get notified of new build videos and tutorials</span>
+                            </div>
+                        </label>
+                        
+                        <label class="subscription-label">
+                            <input type="checkbox" id="subscribe_updates" name="subscribe_updates" checked>
+                            <span class="subscription-checkmark"></span>
+                            <div class="subscription-content">
+                                <span class="subscription-title">📧 Email Updates</span>
+                                <span class="subscription-desc">Receive show updates and exclusive content</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success btn-large">
+                        <span class="btn-icon">👻</span>
+                        <span class="btn-text">Join the Spooky Community!</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="social-links">
+            <h3>🔗 Connect With Us</h3>
+            <div class="social-buttons">
+                <a href="#" class="social-btn youtube" id="youtubeLink">
+                    <span class="social-icon">📺</span>
+                    <span class="social-text">YouTube Channel</span>
+                </a>
+                <a href="#" class="social-btn instagram">
+                    <span class="social-icon">📷</span>
+                    <span class="social-text">Instagram</span>
+                </a>
+                <a href="#" class="social-btn twitter">
+                    <span class="social-icon">🐦</span>
+                    <span class="social-text">Twitter</span>
+                </a>
+                <a href="#" class="social-btn tiktok">
+                    <span class="social-icon">🎵</span>
+                    <span class="social-text">TikTok</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="audience-footer">
+            <p>🎃 Welcome to the ScarePi family! 👻</p>
+            <p>🌙 Get ready for spooky updates and exclusive content!</p>
+        </footer>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content success">
+            <h2>🎉 Welcome to the Spooky Community! 👻</h2>
+            <p>Thank you for joining our Halloween show audience!</p>
+            <div class="success-actions">
+                <button id="subscribeYouTube" class="btn btn-youtube">
+                    <span class="btn-icon">📺</span>
+                    <span class="btn-text">Subscribe to YouTube</span>
+                </button>
+                <button id="shareShow" class="btn btn-share">
+                    <span class="btn-icon">📤</span>
+                    <span class="btn-text">Share the Show</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Animations -->
+    <div class="floating-ghost">👻</div>
+    <div class="floating-bat">🦇</div>
+    <div class="floating-pumpkin">🎃</div>
+    <div class="floating-skull">💀</div>
+
+    <script src="{{ url_for('static', filename='enhanced_script.js') }}"></script>
+</body>
+</html>

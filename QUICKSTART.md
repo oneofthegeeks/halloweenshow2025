@@ -1,6 +1,6 @@
-# 🚀 ScarePi Quick Start Guide 🎃
+# 🚀 ScarePi Enhanced Quick Start Guide 🎃
 
-Get your haunted house running in minutes!
+Get your haunted house AND marketing platform running in minutes!
 
 ## ⚡ Super Quick Setup
 
@@ -27,20 +27,31 @@ sudo reboot
 ffmpeg -i your_scary_sound.mp3 scary_sound.ogg
 ```
 
-### 5. Start ScarePi
+### 5. Start Enhanced ScarePi
 ```bash
 cd halloweenshow2025
-./start_scarepi.sh
+python app_enhanced.py
 ```
 
-### 6. Open Web Interface
-Open your browser to: `http://localhost:5000`
+### 6. Access Your Marketing Platform
+- **Main Control Panel**: `http://localhost:5001`
+- **Audience Form**: `http://localhost:5001/audience`
+- **QR Code Generator**: `http://localhost:5001/qr`
+- **Analytics Dashboard**: `http://localhost:5001/analytics`
 
 ## 🎮 Basic Usage
 
 1. **Enable Motion Detection**: Click the motion toggle button
 2. **Test Manual Controls**: Try the individual buttons
 3. **Trigger Full Scare**: Use the big red button for everything at once
+
+## 📱 Marketing Features
+
+1. **Generate QR Code**: Click "Generate QR Code" button
+2. **Collect Audience Data**: Share the audience form link
+3. **Track Analytics**: Monitor show performance and audience growth
+4. **Start/Stop Shows**: Use show management controls
+5. **Social Media**: Share your show and grow your following
 
 ## 🔧 Quick Troubleshooting
 

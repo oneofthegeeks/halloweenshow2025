@@ -8,5 +8,9 @@ Werkzeug==3.0.1
 # System Utilities
 python-dateutil==2.8.2
 
+# QR Code Generation
+qrcode[pil]==8.2
+Pillow==11.3.0
+
 # Note: RPi.GPIO, picamera, and pygame are not needed for local testing
 # They are only required on the actual Raspberry Pi
