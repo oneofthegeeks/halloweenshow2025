@@ -6,14 +6,8 @@ Flask==3.0.0
 Werkzeug==3.0.1
 
 # QR Code Generation
-qrcode[pil]==8.2
+qrcode==8.2
 Pillow==11.3.0
-
-# Database
-sqlite3
-
-# Audio Processing (for future enhancements)
-pyaudio==0.2.11
 
 # HTTP Requests
 requests==2.31.0

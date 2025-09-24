@@ -14,14 +14,20 @@ RUN apt-get update && apt-get install -y \
     sqlite3 \
     curl \
     build-essential \
+    gcc \
+    g++ \
     && rm -rf /var/lib/apt/lists/*
+
+# Upgrade pip first
+RUN pip install --upgrade pip setuptools wheel
 
 # Copy requirements first for better caching
 COPY requirements_simple.txt requirements.txt
 
-# Install Python dependencies with retry logic
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+# Install Python dependencies with error handling
+RUN pip install --no-cache-dir -r requirements.txt || \
+    (echo "First attempt failed, trying with --no-deps..." && \
+     pip install --no-cache-dir --no-deps -r requirements.txt)
 
 # Copy application files
 COPY . .

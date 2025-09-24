@@ -1,0 +1,18 @@
+# 🎃 ScarePi Simple Requirements 🦇
+# Minimal requirements for Docker deployment
+
+# Web Framework
+Flask==3.0.0
+
+# QR Code Generation
+qrcode==8.2
+Pillow==11.3.0
+
+# HTTP Requests
+requests==2.31.0
+
+# Date/Time handling
+python-dateutil==2.8.2
+
+# Health checks
+psutil==5.9.6
